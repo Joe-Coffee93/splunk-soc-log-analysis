@@ -6,7 +6,7 @@ Security Operations dashboards built in Splunk for multi-source log analysis (Ho
 
 ---
 
-🧠 Dashboard Snapshots
+ Dashboard Snapshots
 
-🚧 Firewall Threat Analysis
+ Firewall Threat Analysis
 ![Firewall Dashboard](dashboards/firewall.png)
