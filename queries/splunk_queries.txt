@@ -1,6 +1,6 @@
-# Replace index names with yours.
 
-### Linux Authentication Logs
+
+ Linux Authentication Logs
 index="linux_auth_logs"
 | stats count(eval(Action="failed")) as "Failed Logins", count(eval(Action="success")) as "Successful Logins"
 
@@ -18,7 +18,7 @@ index="linux_auth_logs"
 | stats count by user, Action
 | chart sum(count) by user, Action
 
-### Honeypot Logs
+ Honeypot Logs
 index="honeypot_logs"
 | iplocation src_ip
 | geostats count by Country latfield=lat longfield=lon
@@ -38,7 +38,7 @@ index="apache_logs"
 | iplocation clientip
 | geostats count by Country latfield=lat longfield=lon
 
-### Firewall Logs
+ Firewall Logs
 index="firewall_logs" | stats count by Action
 
 index="firewall_logs"
@@ -47,7 +47,7 @@ index="firewall_logs"
 index="firewall_logs"
 | stats sum("Bytes Sent") as bytes_out sum("Bytes Received") as bytes_in by Action
 
-### IDS – TII-SSRC-23
+ IDS – TII-SSRC-23
 index="tii_ssrc23" Label="malicious"
 | stats count by "Traffic Subtype" | sort - count | head 10
 
