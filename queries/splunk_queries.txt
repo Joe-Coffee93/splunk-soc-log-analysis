@@ -1,0 +1,64 @@
+# Replace index names with yours.
+
+### Linux Authentication Logs
+index="linux_auth_logs"
+| stats count(eval(Action="failed")) as "Failed Logins", count(eval(Action="success")) as "Successful Logins"
+
+index="linux_auth_logs"
+| stats count as "Failed Attempts" by user
+| sort - "Failed Attempts" | head 10
+
+index="linux_auth_logs"
+| stats count as "Failed Attempts" by src_ip
+| sort - "Failed Attempts" | head 10
+
+index="linux_auth_logs" | timechart span=1h count by Action
+
+index="linux_auth_logs"
+| stats count by user, Action
+| chart sum(count) by user, Action
+
+### Honeypot Logs
+index="honeypot_logs"
+| iplocation src_ip
+| geostats count by Country latfield=lat longfield=lon
+
+index="honeypot_logs"
+| stats count by attack_type
+| sort - count
+
+### Apache Web Server Logs
+index="apache_logs"
+| stats count by uri_path | sort - count | head 10
+
+index="apache_logs"
+| timechart span=1h count by status
+
+index="apache_logs"
+| iplocation clientip
+| geostats count by Country latfield=lat longfield=lon
+
+### Firewall Logs
+index="firewall_logs" | stats count by Action
+
+index="firewall_logs"
+| stats count by "Destination Port" | sort - count | head 20
+
+index="firewall_logs"
+| stats sum("Bytes Sent") as bytes_out sum("Bytes Received") as bytes_in by Action
+
+### IDS – TII-SSRC-23
+index="tii_ssrc23" Label="malicious"
+| stats count by "Traffic Subtype" | sort - count | head 10
+
+index="tii_ssrc23" Label="malicious"
+| bin _time span=1h
+| stats count as Attacks by _time
+| streamstats avg(Attacks) as avg stdev(Attacks) as std window=100
+| eval threshold=avg+(2*std)
+| eval anomaly=if(Attacks>threshold,"Yes","No")
+
+index="tii_ssrc23" Label="malicious"
+| bin _time span=1h
+| stats count as Attacks by _time
+| predict Attacks future_timespan=24 algorithm=LLP holdback=0 upper95=upper lower95=lower
