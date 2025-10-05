@@ -1,3 +1,23 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Splunk-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Project-SOC%20Case%20Study-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Focus-Anomaly%20Detection%20%26%20Forecasting-green?style=for-the-badge">
+</p>
+
+<h1 align="center">🔍 Splunk SOC Log Analysis</h1>
+
+<p align="center">
+  <b>Security Operations Centre Case Study | Threat Detection • Dashboard Design • Log Visualisation</b><br>
+  <i>Created as part of a Cyber Security and Computer Forensics BSc (Hons)</i>
+</p>
+
+---
+
+
+
+
+
+
 # splunk-soc-log-analysis
 Security Operations dashboards built in Splunk for multi-source log analysis (Honeypot, IDS, Firewall, Apache, Linux Auth). Features anomaly detection, geo-mapping, and forecasting.
 
