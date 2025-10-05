@@ -20,3 +20,7 @@ Security Operations dashboards built in Splunk for multi-source log analysis (Ho
 
  IDS Threat Monitoring – TII-SSRC-23
 ![IDS Dashboard](dashboards/ids_tii_ssrc23.png)
+
+
+ Linux Authentication Logs
+![Linux Authentication Dashboard](dashboards/linux_auth.png)
