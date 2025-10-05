@@ -15,3 +15,8 @@ Security Operations dashboards built in Splunk for multi-source log analysis (Ho
 
  Honeypot Threat Intelligence Overview
 ![Honeypot Dashboard](dashboards/honeypot.png)
+
+
+
+ IDS Threat Monitoring – TII-SSRC-23
+![IDS Dashboard](dashboards/ids_tii_ssrc23.png)
