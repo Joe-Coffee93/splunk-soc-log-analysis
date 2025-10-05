@@ -10,3 +10,8 @@ Security Operations dashboards built in Splunk for multi-source log analysis (Ho
 
  Firewall Threat Analysis
 ![Firewall Dashboard](dashboards/firewall.png)
+
+
+
+ Honeypot Threat Intelligence Overview
+![Honeypot Dashboard](dashboards/honeypot.png)
