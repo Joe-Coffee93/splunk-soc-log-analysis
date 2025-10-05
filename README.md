@@ -24,3 +24,8 @@ Security Operations dashboards built in Splunk for multi-source log analysis (Ho
 
  Linux Authentication Logs
 ![Linux Authentication Dashboard](dashboards/linux_auth.png)
+
+
+ Apache Web Server Logs
+![Apache Dashboard](dashboards/apache.png)
+**
